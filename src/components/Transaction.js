@@ -1,9 +1,11 @@
+import { Text } from '@chakra-ui/react';
+
 export default function Transaction({ transaction }) {
   return (
     <div>
-      <p>{transaction.hash}</p>
-      <p>{transaction.from}</p>
-      <p>{transaction.to}</p>
+      <Text>{transaction.hash}</Text>
+      <Text>{transaction.from}</Text>
+      <Text>{transaction.to}</Text>
       <hr />
     </div>
   );

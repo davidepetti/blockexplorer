@@ -1,14 +1,15 @@
+import { Box, Card, Heading } from '@chakra-ui/react';
 import Transaction from './Transaction';
 
 export default function Transactions({ transactions }) {
   return (
-    <div>
-      <h1>Transactions</h1>
-      <div>
+    <Box w='50%'>
+      <Heading>Transactions</Heading>
+      <Card>
         {transactions.map((transaction) => (
           <Transaction transaction={transaction} />
         ))}
-      </div>
-    </div>
+      </Card>
+    </Box>
   );
 }
