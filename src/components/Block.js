@@ -1,24 +1,26 @@
-import { Box, Card, Flex, Spacer, Text } from '@chakra-ui/react';
+import { Box, Card, Divider, Flex, Spacer, Text } from '@chakra-ui/react';
 
 export default function Block({ block }) {
+  const getFormattedTimestamp = () => {
+    const seconds = Math.floor(Date.now() / 1000) - block.timestamp;
+    return seconds > 59 ? '1 min ago' : seconds + ' secs ago';
+  };
+
   return (
-    <Card>
-      <Flex>
+    <Card m='5' p='5'>
+      <Flex justifyContent='space-around'>
         <Box>
           <Text>{block.number}</Text>
-          <Text color='blue'>
-            {Math.floor((Date.now() - block.timestamp) / 1000)}
-          </Text>
+          <Text color='gray.500'>{getFormattedTimestamp()}</Text>
         </Box>
-        <Spacer />
-        <Box>
+
+        <Box alignContent='start'>
           <Text>
             Validator {block.miner.slice(0, 8) + '...' + block.miner.slice(-8)}
           </Text>
-          <Text>{block.transactions.length}</Text>
+          <Text>{block.transactions.length} txns</Text>
         </Box>
       </Flex>
-      <hr />
     </Card>
   );
 }

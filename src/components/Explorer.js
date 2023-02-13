@@ -43,14 +43,14 @@ export default function Explorer() {
   return (
     <Container maxW='container.xl' my='20'>
       <Search />
-      <HStack w='100%'>
+      <Flex w='100%' gap='5'>
         <Blocks blocks={blocks} />
         {blocks.length ? (
           <Transactions transactions={blocks[0].transactions.slice(0, 5)} />
         ) : (
           <Transactions transactions={[]} />
         )}
-      </HStack>
+      </Flex>
     </Container>
   );
 }
